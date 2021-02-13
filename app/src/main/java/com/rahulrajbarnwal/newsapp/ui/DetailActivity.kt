@@ -1,12 +1,12 @@
-package com.rahulrajbarnwal.newsapp
+package com.rahulrajbarnwal.newsapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.rahulrajbarnwal.newsapp.R
 
-class MainActivity : AppCompatActivity() {
+class DetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //asasa
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_detail)
     }
 }

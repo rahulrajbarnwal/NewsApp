@@ -10,6 +10,7 @@ data class NewsData(
     val author: String,
     @SerializedName("urlToImage")
     val url_to_image: String,
+
     @SerializedName("publishedAt")
     val published_at: String,
     val source: Source,
