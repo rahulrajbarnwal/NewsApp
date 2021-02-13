@@ -1,9 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.DetailActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="news"
+            type="com.rahulrajbarnwal.newsapp.model.NewsData" />
+        <import type="com.rahulrajbarnwal.newsapp.utils.Constants"/>
+    </data>
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.DetailActivity"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:text="@{news.title}"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_news"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:imageUrlCache="@{news.url_to_image}"
+            />
+
+        <!--app:placeholder="@{Constants.PLACEHOLDER_TRANSPARENT_IMAGE}"-->
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:text="@{news.description}"
+            android:textColor="#555555"
+            android:textSize="16sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:text="@{news.content}"
+            android:textColor="#555555"
+            android:textSize="16sp" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_source"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{news.source.name}"
+            android:textAllCaps="true"
+            android:layout_marginTop="10dp"
+            android:gravity="end"
+            />
+
+
+    </LinearLayout>
+</layout>

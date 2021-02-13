@@ -1,5 +1,6 @@
 package com.rahulrajbarnwal.newsapp.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
@@ -46,8 +47,10 @@ class MainActivity : BasicActivity<ActivityMainBinding>() {
             )
 
             (adapter as NewsListAdapter).onItemClick = {
-                    url ->
-
+                    data ->
+                val i: Intent = Intent(this@MainActivity, DetailActivity::class.java)
+                i.putExtra("data", data)
+                startActivity(i)
             }
 
         }

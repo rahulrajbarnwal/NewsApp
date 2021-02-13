@@ -2,9 +2,10 @@ package com.rahulrajbarnwal.newsapp.model
 
 import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 @Entity(primaryKeys = ["title"])
-data class NewsData(
+data class NewsData (
     val title: String,
     val description: String,
     val author: String,
@@ -17,8 +18,10 @@ data class NewsData(
     val url:String,
     val content:String
 
-) {
+) : Serializable
+
+{
     data class Source(
         val name: String
-    )
+    ) : Serializable
 }

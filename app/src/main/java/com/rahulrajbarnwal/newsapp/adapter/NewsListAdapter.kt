@@ -11,15 +11,15 @@ import com.rahulrajbarnwal.newsapp.model.NewsData
 
 class NewsListAdapter(var context: Context, var newsList: ArrayList<NewsData>) : RecyclerView.Adapter<NewsListAdapter.ViewHolder>() {
 
-    lateinit var onItemClick: ((String) -> Unit?)
+    lateinit var onItemClick: ((NewsData) -> Unit?)
 
-    class ViewHolder (val binding: ItemNewsBinding, val onItemClick: (String) -> Unit?) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder (val binding: ItemNewsBinding, val onItemClick: (NewsData) -> Unit?) : RecyclerView.ViewHolder(binding.root) {
         fun bind(data: Any) {
             binding.setVariable(1, data)
             binding.executePendingBindings()
 
             binding.clRoot.setOnClickListener {
-                onItemClick.invoke(binding.news?.url.toString())
+                onItemClick.invoke(data as NewsData)
             }
         }
     }
