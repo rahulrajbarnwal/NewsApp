@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rahulrajbarnwal.newsapp.R
+import android.view.View
 import com.rahulrajbarnwal.newsapp.adapter.NewsListAdapter
 import com.rahulrajbarnwal.newsapp.databinding.ActivityBasicBinding
 import com.rahulrajbarnwal.newsapp.databinding.ActivityMainBinding
@@ -24,7 +25,12 @@ class MainActivity : BasicActivity<ActivityMainBinding>() {
         setToolbarText("Top News")
         hideBack()
         getNewsApi()
+
+        binding.btnTry.setOnClickListener {
+            getNewsApi()
+        }
     }
+
 
     private fun getNewsApi() {
         val newsViewModel = ViewModelProviders.of(this).get(NewsViewModel::class.java)
@@ -45,6 +51,12 @@ class MainActivity : BasicActivity<ActivityMainBinding>() {
                     DividerItemDecoration.VERTICAL
                 )
             )
+
+            if (newsList.size == 0){
+                binding.rlNoInternet.visibility = View.VISIBLE
+            }else{
+                binding.rlNoInternet.visibility= View.GONE
+            }
 
             (adapter as NewsListAdapter).onItemClick = {
                     data ->

@@ -34,12 +34,14 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_news"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
+            android:layout_height="wrap_content"
+            android:minHeight="300dp"
+            android:scaleType="fitCenter"
             app:imageUrlCache="@{news.url_to_image}"
+            app:placeholder="@{Constants.PLACEHOLDER_TRANSPARENT_IMAGE}"
             />
 
-        <!--app:placeholder="@{Constants.PLACEHOLDER_TRANSPARENT_IMAGE}"-->
+
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_desc"
